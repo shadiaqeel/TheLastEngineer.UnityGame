@@ -1,118 +1,126 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-
-[RequireComponent(typeof(PathFinder))]
-//[RequireComponent(typeof(EnemyHealth))]
-[RequireComponent(typeof(EnemyState))]
+[RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
 
 public class Enemy : MonoBehaviour {
 
-	PathFinder pathFinder;
+    private enum EnemyState { AWARE, UNAWARE};
+    public enum EnemyMoveState { STOP, WALK , RUN};
+    private EnemyState CurrentState = EnemyState.UNAWARE ;
 
-	[SerializeField] Scanner Scanner;
+    private EnemyMoveState CurrentMoveState = EnemyMoveState.WALK;
 
-	// [SerializeField] Aj settings; 
+    private Patrol patrol;
 
-	TargetTag priorityTarget; 
-	List<TargetTag> myTargets;
-
-	public event System.Action<TargetTag> OnTargetSelected;
-/* 
-	private EnemyHealth m_EnemyHealth;
-	public EnemyHealth EnemyHealth 
-	{
-		get
-		{ 
-			if (m_EnemyHealth == null)
-				m_EnemyHealth = GetComponent<EnemyHealth> ();
-			return m_EnemyHealth;
-		}
-	}
-
-*/
-	private EnemyState m_EnemyState;
-	public EnemyState EnemyState 
-	{
-		get
-		{ 
-			if (m_EnemyState == null)
-				m_EnemyState = GetComponent<EnemyState> ();
-			return m_EnemyState;
-		}
-	}
+    private NavMeshAgent agent;
 
 
-	void Start () {
-		pathFinder = GetComponent<PathFinder> ();
-		//pathFinder.Agent.speed = settings.WalkSpeed;
-		pathFinder.Agent.speed = 1 ;
+    public SearchForTarget  Target;
+
+    [SerializeField] EnemySetting enemySetting;
+
+    
 
 
-		Scanner.OnScanReady += Scanner_OnScanReady;
-		Scanner_OnScanReady ();
+    
+    public void Start()
+    {
+        
+        patrol = GetComponent<Patrol>();
+        Target = GetComponent<SearchForTarget>();
+        agent = GetComponent<NavMeshAgent>();
 
-		//EnemyHealth.OnDeath += EnemyHealth_OnDeath;
-		EnemyState.OnModeChanged += EnemyState_OnModeChanged;
-	}
 
-	private void EnemyState_OnModeChanged (EnemyState.EMode state)
-	{
-		//pathFinder.Agent.speed = settings.WalkSpeed;
-		//pathFinder.Agent.speed = settings.RunSpeed;
+    }
+    public void Update()
+    {
 
-		if (state == EnemyState.EMode.AWARE);
-			//pathFinder.Agent.speed = 0 ;
-	}
+        Debug.Log(agent.destination);
+        if (!IsAware)
+        {
+                patrol.Wander();
+        }
+    
+        
+    }
 
-	private void EnemyHealth_OnDeath ()
-	{
-		
-	}
 
-	private void Scanner_OnScanReady ()
-	{
-		if (priorityTarget != null)
-			return;
 
-		myTargets = Scanner.ScanForTargets<TargetTag> (); 
-		if(myTargets.Count == 0)
-		{m_EnemyState.CurrentMode = EnemyState.EMode.UNAWARE;
-		priorityTarget = null;
-		}
-		else if (myTargets.Count == 1)
-			priorityTarget = myTargets [0];
-		else
-			SelectClosestTarget ();
 
-		if (priorityTarget != null) 
-		{
-			if (OnTargetSelected != null)
-				OnTargetSelected (priorityTarget);
-		}
-	}
 
-	private void SelectClosestTarget () {
-		float closestTarget = Scanner.ScanRange;
-		foreach (var possibleTarget in myTargets) 
-		{
-			if (Vector3.Distance (transform.position, possibleTarget.transform.position) < closestTarget)
-				priorityTarget = possibleTarget;
-		}
-	}
-	
 
-	void Update () 
-	{
-		if (priorityTarget != null)
-		{
 
-		transform.LookAt (priorityTarget.transform.position);
-		pathFinder.SetTarget(priorityTarget.transform.position);
-		EnemyState.CurrentMode = EnemyState.EMode.AWARE;
 
-		}
 
-	}
+
+
+
+
+
+
+#region Properties 
+
+    public bool IsAware
+    {
+        get{
+        if(CurrentState == EnemyState.AWARE)
+        return true;
+        else 
+        return false;}
+        
+        set{
+            if(value)
+            {CurrentState = EnemyState.AWARE;}
+            else{CurrentState = EnemyState.UNAWARE;}
+            
+        }
+
+
+    }
+
+    public EnemyMoveState CurrentMove
+    {
+        get
+        {
+            return CurrentMoveState;
+        }
+
+        set
+        {
+
+            CurrentMoveState = value;
+
+            if(CurrentMoveState==EnemyMoveState.STOP)
+            {
+                agent.speed=0;
+            }
+            else if(CurrentMoveState==EnemyMoveState.WALK){
+                
+                agent.speed = 0.4f;
+                //agent.speed = enemySetting.WanderSpeed;
+            }
+            else{
+               
+               agent.speed = 1.2f;
+               // agent.speed = enemySetting.ChaseSpeed;
+
+                }
+
+            
+            
+        }
+    }
+
+  
+
+#endregion Properties
+
 }
+
+
+
+ 
+

@@ -53,20 +53,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_Scripts\Camera\CameraController.cs" />
+     <Compile Include="Assets\_Scripts\ClickToMove.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Enemy.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\EnemyPatrol.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\EnemyState.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\Examples\AIExample.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\Examples\PlayerExample.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\PathFinder.cs" />
+     <Compile Include="Assets\_Scripts\Enemy\LocomotionSimpleAgent .cs" />
+     <Compile Include="Assets\_Scripts\Enemy\Patrol.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Scanner.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\Waypoint.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\WaypointController.cs" />
+     <Compile Include="Assets\_Scripts\Enemy\SearchForTarget.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Zombie\ZombieAnimation.cs" />
-     <Compile Include="Assets\_Scripts\GameManager.cs" />
+     <Compile Include="Assets\_Scripts\Player\UserInput.cs" />
      <Compile Include="Assets\_Scripts\TargetTag.cs" />
-     <Compile Include="Assets\_Scripts\Timer.cs" />
-     <Compile Include="Assets\MoveMotionPack\SampleScene\Scripts\PlayManager.cs" />
+     <Compile Include="Assets\_Scripts\Waypoints\Waypoint.cs" />
+     <Compile Include="Assets\_Scripts\Waypoints\WaypointsController.cs" />
+     <Compile Include="Assets\_Scripts\Weapon\Weapon.cs" />
+     <Compile Include="Assets\_Scripts\Weapon\WeaponHandler.cs" />
+     <Compile Include="Assets\_Smadi\_Scripts\AnimatorControllerPlayer.cs" />
+     <Compile Include="Assets\_Smadi\_Scripts\CompleteCameraController.cs" />
+     <Compile Include="Assets\_Smadi\_Scripts\FollowCamera.cs" />
+     <Compile Include="Assets\_Smadi\_Scripts\ThirdPersonUserControl.cs" />
+     <Compile Include="Assets\_Smadi\Virtual Joystick Pack\Examples\2D Example\Player2DExample.cs" />
+     <Compile Include="Assets\_Smadi\Virtual Joystick Pack\Examples\3D Example\Player3DExample.cs" />
+     <Compile Include="Assets\_Smadi\Virtual Joystick Pack\Scripts\Base\Joystick.cs" />
+     <Compile Include="Assets\_Smadi\Virtual Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
+     <Compile Include="Assets\_Smadi\Virtual Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
+     <Compile Include="Assets\_Smadi\Virtual Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+     <Compile Include="Assets\ScriptableObject\EnemySetting.cs" />
+     <Compile Include="Assets\ScriptableObject\MakeScriptableObject.cs" />
      <Compile Include="Assets\UMA\Content\UMA_Core\HumanFemale\DNA\LegacyDNA\HumanFemaleDNAConverterBehaviour.cs" />
      <Compile Include="Assets\UMA\Content\UMA_Core\HumanMale\DNA\LegacyDNA\HumanMaleDNAConverterBehaviour.cs" />
      <Compile Include="Assets\UMA\Content\UMA_Core\HumanShared\DNA\Legacy\HumanoidDNAConverterBehaviour.cs" />
@@ -258,7 +270,6 @@
      <Compile Include="Assets\UMA\Examples\Expressions Examples\Scripts\ActiveObjectSwitcher.cs" />
      <Compile Include="Assets\UMA\Examples\Expressions Examples\Scripts\EditModeExpressionPreview.cs" />
      <Compile Include="Assets\UMA\Examples\Expressions Examples\Scripts\SliderExpressionTest.cs" />
-     <Compile Include="Assets\UMA\Examples\Legacy Examples\Scripts\BRDFLookupTexture.cs" />
      <Compile Include="Assets\UMA\Examples\Legacy Examples\Scripts\CameraTrack.cs" />
      <Compile Include="Assets\UMA\Examples\Legacy Examples\Scripts\DemoTextHelper.cs" />
      <Compile Include="Assets\UMA\Examples\Legacy Examples\Scripts\EnvPreset.cs" />
@@ -304,15 +315,12 @@
      <None Include="Assets\UMA\Core\StandardAssets\UMA\Atlas\AtlasDiffuseShader.shader" />
      <None Include="Assets\UMA\Examples\Legacy Examples\ReadMe - Networking Demo.txt" />
      <None Include="Assets\UMA\Core\StandardAssets\UMA\Atlas\AtlasCutoutShader.shader" />
-     <None Include="Assets\MoveMotionPack\SampleScene\Shaders\ReflectiveDiffuseSpecTransp.shader" />
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\Resources\CharacterRecipes\HumanMale1.txt" />
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\Resources\CharacterRecipes\ToonBigAndFat.txt" />
-     <None Include="Assets\MoveMotionPack\SampleScene\Shaders\DiffuseReflectiveShader.shader" />
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\Resources\CharacterRecipes\ToonFemaleStarDancer1c.txt" />
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\Resources\CharacterRecipes\Bob.txt" />
      <None Include="Assets\UMA\Content\UMA_Core\HumanShared\Materials\Shaders\HairFadeCutoutSS.shader" />
      <None Include="Assets\UMA\Examples\Expressions Examples\Editing Expression Clips.txt" />
-     <None Include="Assets\MoveMotionPack\SampleScene\Shaders\ReflectiveDiffuseSpec.shader" />
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\DemoAssetBundles\Werewolf\Wardrobe1\ProTip-README.txt" />
      <None Include="Assets\UMA\Core\StandardAssets\UMA\Atlas\NormalSwizzleShader.shader" />
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\Resources\CharacterRecipes\Troll1c.txt" />
@@ -323,6 +331,7 @@
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\Resources\CharacterRecipes\HumanMale2.txt" />
      <None Include="Assets\UMA\Examples\DynamicCharacterSystem Examples\Assets\Resources\CharacterRecipes\Gobs.txt" />
      <None Include="Assets\UMA\Content\UMA_Core\HumanShared\Materials\Shaders\HairFadeCutout2.shader" />
+     <None Include="Assets\_Smadi\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
      <None Include="Assets\UMA\Examples\Legacy Examples\Assets\Textures\Skyboxes\NoEmotion\NoEmotionHDRs.txt" />
      <None Include="Assets\UMA\InternalDataStore\AssetVersion.xml" />
      <None Include="Assets\UMA\Core\StandardAssets\UMA\Atlas\AtlasNormalShader32.shader" />
@@ -346,8 +355,14 @@
  <Reference Include="Unity.PackageManagerUI.Editor">
  <HintPath>C:/Users/dell/Documents/GradProject/thelastengineer/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Editor">
+ <HintPath>C:/Users/dell/Documents/GradProject/thelastengineer/Library/ScriptAssemblies/Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Autodesk.Fbx">
  <HintPath>C:/Users/dell/Documents/GradProject/thelastengineer/Library/ScriptAssemblies/Autodesk.Fbx.dll</HintPath>
+ </Reference>
+ <Reference Include="XiaomiSupport">
+ <HintPath>C:/Users/dell/Documents/GradProject/thelastengineer/Library/ScriptAssemblies/XiaomiSupport.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/dell/Documents/GradProject/thelastengineer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -558,6 +573,12 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="ChannelPurchase">
+ <HintPath>C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.xiaomi@1.0.3/ChannelPurchase.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityStore">
+ <HintPath>C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.xiaomi@1.0.3/UnityStore.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

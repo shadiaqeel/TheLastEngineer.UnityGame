@@ -651,12 +651,14 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 1
+    Collab: 1
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: b8cedb65-acd3-4353-a282-427961e76b29
+  cloudProjectId: 7ad490a2-8a14-41e5-a644-a3808c9bc761
   projectName: thelastengineer
-  organizationId: mhammd-ali-smadi
+  organizationId: gradprojectyarmouk
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

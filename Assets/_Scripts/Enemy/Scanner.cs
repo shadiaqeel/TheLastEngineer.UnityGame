@@ -2,15 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(SphereCollider))]
-public class Scanner : MonoBehaviour 
-{
+public class Scanner : MonoBehaviour {
 
-	[SerializeField] float scanSpeed;
-	[SerializeField] [Range(0, 360)] float fieldOfView;
-	[SerializeField] LayerMask mask;
+[SerializeField] [Range(0, 360)] float fieldOfView = 90;
+[SerializeField] LayerMask mask;
 
-	SphereCollider rangeTrigger;
+SphereCollider rangeTrigger;
+
+
+
+	public event System.Action OnScanReady;   
+
+
+	void Start () {}
+	
+	// Update is called once per frame
+	void Update () {}
+
+
+
+
+
+
+
+
 
 	public float ScanRange {
 		get
@@ -21,11 +38,77 @@ public class Scanner : MonoBehaviour
 		}
 	}
 
-	public event System.Action OnScanReady;   
-	
 
 
-	
+
+
+
+	public List<T> ScanForTargets<T> () 
+	{
+
+		List<T> targets = new List<T> ();
+
+		Collider[] results = Physics.OverlapSphere (transform.position, ScanRange);
+
+		for (int i = 0; i < results.Length; i++) {
+			var target = results [i].transform.GetComponent<T> ();
+
+			if (target == null)
+				continue;
+
+			if (!IsInLineOfSight (results[i].transform.position, Vector3.up))
+				continue;
+			targets.Add (target);
+		}
+
+		StartCoroutine(WaitToReScan ()); 
+		return targets;
+		
+
+		
+	}
+
+
+	IEnumerator WaitToReScan (){
+     yield return new WaitForSecondsRealtime(1);
+	 if (OnScanReady != null)
+		OnScanReady();
+	}
+
+
+
+	public bool IsInLineOfSight (  Vector3 target, Vector3 offset)
+		{
+			
+			Transform origin = this.transform;
+			Vector3 direction = target - origin.position;
+
+			if (Vector3.Angle (Vector3.forward, transform.InverseTransformPoint(target)) < fieldOfView / 2) {
+				float distanceToTarget = Vector3.Distance (origin.position, target);
+
+				Debug.DrawRay(origin.position + offset + origin.forward * .3f, direction.normalized,Color.cyan);
+				// something blocking our view?
+				if (Physics.Raycast (origin.position + offset + origin.forward * .3f, direction.normalized, distanceToTarget, mask)) {
+					return false;
+				}
+
+
+				return true;
+			}
+
+			return false;
+		}
+
+
+
+
+
+
+
+
+
+
+
 
 	void OnDrawGizmos () 
 	{
@@ -39,65 +122,4 @@ public class Scanner : MonoBehaviour
 		float radian = (angle + transform.eulerAngles.y) * Mathf.Deg2Rad;
 		return new Vector3 (Mathf.Sin(radian), 0, Mathf.Cos(radian));
 	}
-
-	public List<T> ScanForTargets<T> () 
-	{
-					Debug.Log("ScanForTargets");
-
-		List<T> targets = new List<T> ();
-
-		Collider[] results = Physics.OverlapSphere (transform.position, ScanRange);
-
-		for (int i = 0; i < results.Length; i++) {
-			var target = results [i].transform.GetComponent<T> ();
-
-			if (target == null)
-				continue;
-
-			if (!IsInLineOfSight (results[i].transform.position, fieldOfView, mask, Vector3.up))
-				continue;
-			Debug.Log("**********");
-			targets.Add (target);
-		}
-
-		StartCoroutine(PrepareScan ()); 
-		return targets;
-		
-
-		
-	}
-
-
-		IEnumerator PrepareScan(){
-     yield return new WaitForSecondsRealtime(1);
-	 if (OnScanReady != null)
-		OnScanReady();
- }
-
-bool IsInLineOfSight (  Vector3 target, float fieldOfView, LayerMask collisionMask, Vector3 offset)
-		{
-			Debug.Log("IsInLineOfSight = "+ target  );
-
-
-			Transform origin = this.transform;
-			Vector3 direction = target - origin.position;
-
-			if (Vector3.Angle (origin.forward, direction.normalized) < fieldOfView / 2) {
-				float distanceToTarget = Vector3.Distance (origin.position, target);
-
-				// something blocking our view?
-				if (Physics.Raycast (origin.position + offset + origin.forward * .3f, direction.normalized, distanceToTarget, collisionMask)) {
-					return false;
-				}
-
-				return true;
-			}
-
-			return false;
-		}
-
-
-
-
-	
 }

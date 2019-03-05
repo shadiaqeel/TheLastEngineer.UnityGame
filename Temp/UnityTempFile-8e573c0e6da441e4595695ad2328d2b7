@@ -1,0 +1,319 @@
+-debug
+-target:library
+-nowarn:0169
+-langversion:4
+-out:Temp/Assembly-CSharp-Editor.dll
+-nostdlib
+-r:Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+-r:Library/ScriptAssemblies/Assembly-CSharp.dll
+-r:Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll
+-r:Library/ScriptAssemblies/Unity.Formats.Fbx.Editor.dll
+-r:Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
+-r:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+-r:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
+-r:Library/ScriptAssemblies/Editor.dll
+-r:Library/ScriptAssemblies/Autodesk.Fbx.dll
+-r:Library/ScriptAssemblies/XiaomiSupport.dll
+-r:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+-r:Library/ScriptAssemblies/Unity.Formats.Fbx.Runtime.dll
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AccessibilityModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AnimationModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AssetBundleModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AudioModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.BaselibModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ClothModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.CloudWebServicesModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterInputModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.CoreModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.CrashReportingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.DirectorModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.FacebookModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.GameCenterModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.GridModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.HotReloadModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.IMGUIModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ImageConversionModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.InputModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.LocalizationModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.PhysicsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.Physics2DModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ProfilerModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.StreamingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SubstanceModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TLSModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TextRenderingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TilemapModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TimelineModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UIModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UIElementsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UNETModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UmbraModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityConnectModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.VRModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.VehiclesModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.VideoModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.WindModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEditor.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/Unity.Locator.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
+-r:C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
+-r:C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
+-r:C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll
+-r:C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
+-r:C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll
+-r:C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.xiaomi@1.0.3/ChannelPurchase.dll
+-r:C:/Users/dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.xiaomi@1.0.3/UnityStore.dll
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll"
+-r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.Linq.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\UnityScript.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\UnityScript.Lang.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\Boo.Lang.dll"
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_6_OR_NEWER
+-define:UNITY_2017_1_OR_NEWER
+-define:UNITY_2017_2_OR_NEWER
+-define:UNITY_2017_3_OR_NEWER
+-define:UNITY_2017_4_OR_NEWER
+-define:UNITY_2018_1_OR_NEWER
+-define:UNITY_2018_2_OR_NEWER
+-define:UNITY_2018_2_20
+-define:UNITY_2018_2
+-define:UNITY_2018
+-define:PLATFORM_ARCH_64
+-define:UNITY_64
+-define:UNITY_ANALYTICS
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_SPRITES
+-define:ENABLE_GRID
+-define:ENABLE_TILEMAP
+-define:ENABLE_TERRAIN
+-define:ENABLE_TEXTURE_STREAMING
+-define:ENABLE_DIRECTOR
+-define:ENABLE_UNET
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES_COLLAB
+-define:ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_HUB
+-define:ENABLE_EDITOR_HUB_LICENSE
+-define:ENABLE_WEBSOCKET_CLIENT
+-define:ENABLE_DIRECTOR_AUDIO
+-define:ENABLE_DIRECTOR_TEXTURE
+-define:ENABLE_TIMELINE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:ENABLE_MANAGED_JOBS
+-define:ENABLE_MANAGED_TRANSFORM_JOBS
+-define:ENABLE_MANAGED_ANIMATION_JOBS
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:ENABLE_MONO_BDWGC
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:INCLUDE_PUBNUB
+-define:ENABLE_VIDEO
+-define:ENABLE_PACKMAN
+-define:ENABLE_CUSTOM_RENDER_TEXTURE
+-define:ENABLE_LOCALIZATION
+-define:PLATFORM_STANDALONE_WIN
+-define:PLATFORM_STANDALONE
+-define:UNITY_STANDALONE_WIN
+-define:UNITY_STANDALONE
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+-define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
+-define:ENABLE_EVENT_QUEUE
+-define:ENABLE_CLUSTER_SYNC
+-define:ENABLE_CLUSTERINPUT
+-define:ENABLE_VR
+-define:ENABLE_AR
+-define:ENABLE_WEBSOCKET_HOST
+-define:ENABLE_MONO
+-define:NET_2_0_SUBSET
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:ENABLE_UNITY_COLLECTIONS_CHECKS
+-define:ENABLE_BURST_AOT
+-define:UNITY_TEAM_LICENSE
+-define:CROSS_PLATFORM_INPUT
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicAssetLoaderEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicCharacterAvatarEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicCharacterSystemEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicDNAConverterBehaviourEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicDnaConverterCustomizerEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicOverlayLibraryEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicRaceLibraryEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicSlotLibraryEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicUMADnaAssetEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/DynamicUMADnaAssetPropertyDrawer.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/pDCSRecipeEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/pTextRecipeEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/pWardrobeRecipeEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/RaceAnimatorListPropertyDrawer.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/RaceSetterPropertyDrawer.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/RecipeEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/SkeletonModifierPropertyDrawer.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/UMAAssetIndexerEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/UmaBoneBuilderWindow.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/UMADynamicCharacterAvatarRecipeEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/UMAWardrobeCollectionEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/UMAWardrobeRecipeEditor.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/Scripts/Editor/WardrobeRecipeListPropertyDrawer.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/UMAAssetBundleManager/Editor/AssetBundleManagerInspector.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/UMAAssetBundleManager/Editor/AssetbundlesMenuItems.cs
+Assets/UMA/Core/Extensions/DynamicCharacterSystem/UMAAssetBundleManager/GUI/Editor/ReadOnlyDrawer.cs
+Assets/UMA/Core/Extensions/Timeline/UmaColor/Editor/UmaColorTrackEditor.cs
+Assets/UMA/Core/Extensions/Timeline/UmaRace/Editor/UmaRaceClipEditor.cs
+Assets/UMA/Core/Extensions/Timeline/UmaWardrobe/Editor/UmaWardrobeBehaviourEditor.cs
+Assets/UMA/Core/Scripts/DNAPlugins/Editor/ColorDNAConverterPropertyDrawers.cs
+Assets/UMA/Core/Scripts/DNAPlugins/Editor/SkeletonDNAConverterPluginInspector.cs
+Assets/UMA/Core/Scripts/Editor/BaseCharacterModifierPropertyDrawer.cs
+Assets/UMA/Core/Scripts/Editor/CachedReorderableList.cs
+Assets/UMA/Core/Scripts/Editor/DNAEvaluationGraphPresetLibraryInspector.cs
+Assets/UMA/Core/Scripts/Editor/DNAEvaluationGraphPresetsPopupContent.cs
+Assets/UMA/Core/Scripts/Editor/DNAEvaluationGraphPropertyDrawer.cs
+Assets/UMA/Core/Scripts/Editor/DNAEvaluatorListPropertyDrawer.cs
+Assets/UMA/Core/Scripts/Editor/DNAEvaluatorPropertyDrawer.cs
+Assets/UMA/Core/Scripts/Editor/DynamicDNAConverterControllerInspector.cs
+Assets/UMA/Core/Scripts/Editor/DynamicDNAConverterControllerPropertyDrawer.cs
+Assets/UMA/Core/Scripts/Editor/DynamicDNAPluginInspector.cs
+Assets/UMA/Core/Scripts/Editor/DynamicDNAPluginMasterWeightDrawer.cs
+Assets/UMA/Core/Scripts/Editor/LegacyDynamicDNAConverterGUIDrawer.cs
+Assets/UMA/Core/Scripts/Editor/OverlayLibraryEditor.cs
+Assets/UMA/Core/Scripts/Editor/SharedColorTableEditor.cs
+Assets/UMA/Core/Scripts/Editor/SlotLibraryEditor.cs
+Assets/UMA/Core/Scripts/Editor/TagsEditor.cs
+Assets/UMA/Core/Scripts/Editor/UMAAvatarLoadSaveMenuItems.cs
+Assets/UMA/Core/Scripts/Editor/UMABonePosePropertyDrawer.cs
+Assets/UMA/Core/Scripts/Editor/UMAEditorUtilities.cs
+Assets/UMA/Core/StandardAssets/Extensions/DynamicCharacterSystem/Scripts/Editor/EnumFlagsAttributeDrawer.cs
+Assets/UMA/Core/StandardAssets/Extensions/UMAPhysics/Editor/UMAPhysicsAvatarEditor.cs
+Assets/UMA/Core/StandardAssets/Extensions/UMAPhysics/Editor/UMAPhysicsElementEditor.cs
+Assets/UMA/Core/StandardAssets/Extensions/UMAPhysics/Editor/UMAPhysicsSlotEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/CharacterBaseEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/CodeGenTemplate.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/CreateCleanAnimationMenu.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/DictionaryCustomFormatter.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/DNAConverterFieldPropertyDrawer.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/DNAConverterListPropertyDrawer.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/DNARangeInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/ExpressionPlayerInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/GeometrySelectorWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/GeometryUVEditorWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/GUIHelper.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/InspectorUtlity.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/Integrations/PowerToolsIntegration/UMALODConversionSetEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/MeshHideInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/MorphSetDnaAssetInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/OverlayColorDataPropertyDrawer.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/OverlayDataAssetInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/OverlayInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/RaceInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/SlotDataAssetInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/TPoseExtracter.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UmaAboutWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAAssetCollectionEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMABonePoseBuildWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMABonePoseEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMABonePoseEditorContext.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMABonePoseMixerWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAClothPropertiesInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMADataEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMADNAHelperTools.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMADNAToBonePoseWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAExpressionSetInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAGeneratorBaseEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAGeneratorBuiltinEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAGeneratorEditor.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAMaterialInspector.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAMeshDataPropertyDrawer.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMAObjExporter.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UmaRaceUpdaterWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UmaSlotBuilderWindow.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UMASlotProcessingUtil.cs
+Assets/UMA/Core/StandardAssets/UMA/Scripts/Editor/UmaTPoseInspector.cs
+"Assets/UMA/Examples/DynamicCharacterSystem Examples/Scripts/Scene4/Editor/PhotoBoothInspector.cs"
+"Assets/UMA/Examples/Legacy Examples/Scripts/Editor/EnvPresetChooserEd.cs"
+"Assets/UMA/Examples/Legacy Examples/Scripts/Editor/UMASimpleLODEditor.cs"
+"Assets/UMA/Examples/Physics Examples/Scripts/Editor/ClothHelperEditor.cs"
+"Assets/UMA/Examples/Physics Examples/Scripts/Editor/UMABoneVisualizerEditor.cs"
