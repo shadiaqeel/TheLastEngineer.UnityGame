@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 [ExecuteInEditMode]
 public class CameraController : MonoBehaviour
@@ -10,7 +11,7 @@ public class CameraController : MonoBehaviour
 
     public enum Shoulder
     {
-        Right, Left
+        Right, Left,Middle
     }
     public Shoulder shoulder;
 
@@ -24,6 +25,7 @@ public class CameraController : MonoBehaviour
         [Header("Positioning")]
         public Vector3 camPositionOffsetLeft;
         public Vector3 camPositionOffsetRight;
+        public Vector3 camPositionOffsetMiddle;
 
         [Header("Camera Options")]
 		public Camera UICamera;
@@ -99,9 +101,9 @@ public class CameraController : MonoBehaviour
                 RotateCamera();
                 CheckWall();
                 CheckMeshRenderer();
-                Zoom(Input.GetButton(input.aimButton));
+                Zoom(CrossPlatformInputManager.GetButton(input.aimButton));
 
-                if (Input.GetButtonDown(input.switchShoulderButton))
+                if (CrossPlatformInputManager.GetButtonDown(input.switchShoulderButton))
                 {
                     SwitchShoulders();
                 }
@@ -163,8 +165,8 @@ public class CameraController : MonoBehaviour
         if (!pivot)
             return;
 
-        newX += cameraSettings.mouseXSensitivity * Input.GetAxis(input.verticalAxis);
-        newY += cameraSettings.mouseYSensitivity * Input.GetAxis(input.horizontalAxis);
+        newX += cameraSettings.mouseXSensitivity * CrossPlatformInputManager.GetAxis(input.verticalAxis);
+        newY += cameraSettings.mouseYSensitivity * CrossPlatformInputManager.GetAxis(input.horizontalAxis);
 
         Vector3 eulerAngleAxis = new Vector3();
         eulerAngleAxis.x = newY;
@@ -195,7 +197,21 @@ public class CameraController : MonoBehaviour
         Vector3 start = pivotPos;
         Vector3 dir = mainCamPos - pivotPos;
 
-        float dist = Mathf.Abs(shoulder == Shoulder.Left ? cameraSettings.camPositionOffsetLeft.z : cameraSettings.camPositionOffsetRight.z);
+        float dist = 0;
+
+        switch (shoulder)
+            {
+                case Shoulder.Left:
+                   dist = Mathf.Abs(cameraSettings.camPositionOffsetLeft.z);
+                    break;
+                case Shoulder.Right:
+                  dist = Mathf.Abs(cameraSettings.camPositionOffsetRight.z);
+                    break;
+                case Shoulder.Middle:
+                   dist = Mathf.Abs(cameraSettings.camPositionOffsetMiddle.z);
+                    break;
+            }
+       // float dist = Mathf.Abs(shoulder == Shoulder.Left ? cameraSettings.camPositionOffsetLeft.z : cameraSettings.camPositionOffsetRight.z);
 
         if(Physics.SphereCast(start, cameraSettings.maxCheckDist, dir, out hit, dist, wallLayers))
         {
@@ -210,6 +226,9 @@ public class CameraController : MonoBehaviour
                     break;
                 case Shoulder.Right:
                     PostionCamera(cameraSettings.camPositionOffsetRight);
+                    break;
+                case Shoulder.Middle:
+                    PostionCamera(cameraSettings.camPositionOffsetMiddle);
                     break;
             }
         }
@@ -301,6 +320,9 @@ public class CameraController : MonoBehaviour
                 break;
             case Shoulder.Right:
                 shoulder = Shoulder.Left;
+                break;
+            case Shoulder.Middle:
+                shoulder = Shoulder.Middle;
                 break;
         }
     }
