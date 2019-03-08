@@ -16,6 +16,8 @@ public class UserInput : MonoBehaviour
         public string verticalAxis = "Vertical";
         public string horizontalAxis = "Horizontal";
         public string jumpButton = "Jump";
+		public string crouchButton = "Crouch";
+
        // public string reloadButton = "Reload";
         public string aimButton = "Fire2";
         public string fireButton = "Fire1";
@@ -105,8 +107,14 @@ public class UserInput : MonoBehaviour
 
         characterMove.Animate(CrossPlatformInputManager.GetAxis(input.verticalAxis), CrossPlatformInputManager.GetAxis(input.horizontalAxis));
 
+
+
         if (CrossPlatformInputManager.GetButtonDown(input.jumpButton))
             characterMove.Jump();
+		if (CrossPlatformInputManager.GetButtonDown(input.crouchButton))
+            characterMove.Crouch();
+
+		
     }
 
 

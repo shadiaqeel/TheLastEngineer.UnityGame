@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour
         public string horizontalVelocityFloat = "Horizontal";
         public string groundedBool = "IsGrounded";
         public string jumpBool = "IsJumping";
+        public string crouchBool = "IsCrouched";
+
     }
 
     
@@ -60,6 +62,8 @@ public class CharacterMovement : MonoBehaviour
 	float vertical;
 	float horizontal;
     bool jumping;
+    bool crouching;
+
     bool resetGravity;
     float gravity;
 
@@ -126,8 +130,13 @@ public class CharacterMovement : MonoBehaviour
         animator.SetFloat(animations.horizontalVelocityFloat, horizontal);
 		animator.SetBool(animations.groundedBool, isGrounded());
         animator.SetBool(animations.jumpBool, jumping);
+        animator.SetBool(animations.crouchBool, crouching);
     }
 
+    public void Crouch()
+       {
+        crouching = !crouching;
+    }
 
 
 
