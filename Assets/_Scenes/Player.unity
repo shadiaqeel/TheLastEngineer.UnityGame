@@ -328,6 +328,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1664598387339582, guid: f373f836cb32e7e40943b07447fe9d79, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826181779637378, guid: f373f836cb32e7e40943b07447fe9d79, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f373f836cb32e7e40943b07447fe9d79, type: 2}
   m_IsPrefabAsset: 0
@@ -375,6 +383,41 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 499686076}
+    - target: {fileID: 114364206397719052, guid: 17493834f13a985428cb188fa169fbd1,
+        type: 2}
+      propertyPath: shoulder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364206397719052, guid: 17493834f13a985428cb188fa169fbd1,
+        type: 2}
+      propertyPath: cameraSettings.camPositionOffsetMiddle.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364206397719052, guid: 17493834f13a985428cb188fa169fbd1,
+        type: 2}
+      propertyPath: cameraSettings.camPositionOffsetMiddle.z
+      value: -1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364206397719052, guid: 17493834f13a985428cb188fa169fbd1,
+        type: 2}
+      propertyPath: cameraSettings.camPositionOffsetLeft.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364206397719052, guid: 17493834f13a985428cb188fa169fbd1,
+        type: 2}
+      propertyPath: cameraSettings.camPositionOffsetLeft.z
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364206397719052, guid: 17493834f13a985428cb188fa169fbd1,
+        type: 2}
+      propertyPath: cameraSettings.camPositionOffsetRight.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364206397719052, guid: 17493834f13a985428cb188fa169fbd1,
+        type: 2}
+      propertyPath: cameraSettings.camPositionOffsetRight.z
+      value: -1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17493834f13a985428cb188fa169fbd1, type: 2}
   m_IsPrefabAsset: 0
