@@ -1,103 +1,131 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FootstepSounds : MonoBehaviour {
-/* 
-	public TextureType[] textureTypes;
+public class FootstepSounds : MonoBehaviour
+{
 
-	public AudioSource audioS;
+    
 
-	SoundController sc;
+    public TextureType[] textureTypes;
 
-	// Use this for initialization
-	void Start () {
-		GameObject check = GameObject.FindGameObjectWithTag ("Sound Controller");
+    public AudioSource audioS;
 
-		if (check != null) {
-			sc = check.GetComponent<SoundController> ();
-			
-		}
-	}
+    SoundController SController;
 
-	void PlayFootstepSound () {
-		RaycastHit hit;
-		Vector3 start = transform.position + transform.up;
-		Vector3 dir = Vector3.down;
+    // Use this for initialization
+    void Start()
+    {
+        GameObject check = GameObject.FindGameObjectWithTag("Sound Controller");
 
-		if (Physics.Raycast (start, dir, out hit, 1.3f)) {
-			if (hit.collider.GetComponent<MeshRenderer> ()) {
-				PlayMeshSound (hit.collider.GetComponent<MeshRenderer> ());
-			} else if (hit.collider.GetComponent<Terrain> ()) {
-				PlayTerrainSound (hit.collider.GetComponent<Terrain> (), hit.point);
-			}
-		}
-	}
+        if (check != null)
+        {
+            SController = check.GetComponent<SoundController>();
 
-	void PlayMeshSound (MeshRenderer renderer) {
+        }
+    }
 
-		if (audioS == null) {
-			Debug.LogError ("PlayMeshSound -- We have no audio source to play the sound from.");
-			return;
-		}
+    void PlayFootstepSound()
+    {
+        RaycastHit hit;
+        Vector3 start = transform.position + transform.up;
+        Vector3 dir = Vector3.down;
 
-		if (sc == null) {
-			Debug.LogError ("PlayMeshSound -- No sound manager!!!");
-			return;
-		}
+        if (Physics.Raycast(start, dir, out hit, 1.3f))
+        {
+            if (hit.collider.GetComponent<MeshRenderer>())
+            {
+                PlayMeshSound(hit.collider.GetComponent<MeshRenderer>());
+            }
+            else if (hit.collider.GetComponent<Terrain>())
+            {
+                PlayTerrainSound(hit.collider.GetComponent<Terrain>(), hit.point);
+            }
+        }
+    }
 
-		if (textureTypes.Length > 0) {
-			foreach (TextureType type in textureTypes) {
+    void PlayMeshSound(MeshRenderer renderer)
+    {
 
-				if (type.footstepSounds.Length == 0) {
-					return;
-				}
+        if (audioS == null)
+        {
+            Debug.LogError("PlayMeshSound -- We have no audio source to play the sound from.");
+            return;
+        }
 
-				foreach (Texture tex in type.textures) {
-					if (renderer.material.mainTexture == tex) {
-						sc.PlaySound (audioS, type.footstepSounds [Random.Range (0, type.footstepSounds.Length)], true, 1, 1.2f);
-					}
-				}
-			}
-		}
-	}
+        if (SController == null)
+        {
+            Debug.LogError("PlayMeshSound -- No sound manager!!!");
+            return;
+        }
 
-	void PlayTerrainSound (Terrain t, Vector3 hitPoint) {
-		if (audioS == null) {
-			Debug.LogError ("PlayTerrainSound -- We have no audio source to play the sound from.");
-			return;
-		}
+        if (textureTypes.Length > 0)
+        {
+            foreach (TextureType type in textureTypes)
+            {
 
-		if (sc == null) {
-			Debug.LogError ("PlayTerrainSound -- No sound manager!!!");
-			return;
-		}
+                if (type.footstepSounds.Length == 0)
+                {
+                    return;
+                }
 
-		if (textureTypes.Length > 0) {
+                foreach (Texture tex in type.textures)
+                {
+                    if (renderer.material.mainTexture == tex)
+                    {
+                        SController.PlaySound(audioS, type.footstepSounds[Random.Range(0, type.footstepSounds.Length)], true, 1, 1.2f);
+                    }
+                }
+            }
+        }
+    }
 
-			int textureIndex = TerrainSurface.GetMainTexture (hitPoint);
+    void PlayTerrainSound(Terrain t, Vector3 hitPoint)
+    {
+        if (audioS == null)
+        {
+            Debug.LogError("PlayTerrainSound -- We have no audio source to play the sound from.");
+            return;
+        }
 
-			foreach (TextureType type in textureTypes) {
+        if (SController == null)
+        {
+            Debug.LogError("PlayTerrainSound -- No sound manager!!!");
+            return;
+        }
 
-				if (type.footstepSounds.Length == 0) {
-					return;
-				}
+        if (textureTypes.Length > 0)
+        {
 
-				foreach (Texture tex in type.textures) {
-					if (t.terrainData.splatPrototypes[textureIndex].texture == tex) {
-						sc.PlaySound (audioS, type.footstepSounds [Random.Range (0, type.footstepSounds.Length)], true, 1, 1.2f);
-					}
-				}
-			}
-		}
-	}
-	*/
+            int textureIndex = TerrainSurfaceDetector.GetMainTexture(hitPoint);
+
+            foreach (TextureType type in textureTypes)
+            {
+
+                if (type.footstepSounds.Length == 0)
+                {
+                    return;
+                }
+
+                foreach (Texture tex in type.textures)
+                {
+                    if (t.terrainData.splatPrototypes[textureIndex].texture == tex)
+                    {
+                        SController.PlaySound(audioS, type.footstepSounds[Random.Range(0, type.footstepSounds.Length)], true, 1, 1.2f);
+                    }
+                }
+            }
+        }
+    }
+
 }
 
+
 [System.Serializable]
-public class TextureType {
-	public string name;
-	public Texture[] textures;
-	public AudioClip[] footstepSounds;
+public class TextureType
+{
+    public string name;
+    public Texture[] textures;
+    public AudioClip[] footstepSounds;
 }
 
 

@@ -8,6 +8,7 @@ TagManager:
   - patrol
   - Enemy
   - Head
+  - Sound Controller
   layers:
   - Default
   - TransparentFX

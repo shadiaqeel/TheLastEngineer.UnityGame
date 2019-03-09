@@ -57,6 +57,7 @@
      <Compile Include="Assets\_Scripts\Base\FootstepSounds.cs" />
      <Compile Include="Assets\_Scripts\Base\Joystick.cs" />
      <Compile Include="Assets\_Scripts\Base\TargetTag.cs" />
+     <Compile Include="Assets\_Scripts\Base\TerrainSurfaceDetector.cs" />
      <Compile Include="Assets\_Scripts\Camera\CameraController.cs" />
      <Compile Include="Assets\_Scripts\Controller\SoundController.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Enemy.cs" />
