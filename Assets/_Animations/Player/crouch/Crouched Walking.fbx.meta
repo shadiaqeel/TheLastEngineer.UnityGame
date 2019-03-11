@@ -170,7 +170,7 @@ ModelImporter:
     4300012: Bottoms
     4300014: Shoes
     7400000: mixamo.com
-    7400002: crouch unarmed walk
+    7400002: crouch_unarmed_walking
     9500000: //RootNode
     13700000: Body
     13700002: Bottoms
@@ -209,7 +209,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: crouch unarmed walk
+      name: crouch_unarmed_walking
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 63
@@ -234,28 +234,28 @@ ModelImporter:
       events:
       - time: 0.10557185
         functionName: PlayFootstepSound
-        data: 
+        data: Crouch
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.3372434
         functionName: PlayFootstepSound
-        data: 
+        data: Crouch
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.58651024
-        functionName: NewEvent
-        data: 
+        functionName: PlayFootstepSound
+        data: Crouch
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.8504399
         functionName: PlayFootstepSound
-        data: 
+        data: Crouch
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

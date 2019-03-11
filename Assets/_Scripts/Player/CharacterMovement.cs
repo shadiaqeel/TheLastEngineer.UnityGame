@@ -18,6 +18,7 @@ public class CharacterMovement : MonoBehaviour
         public string groundedBool = "IsGrounded";
         public string jumpBool = "IsJumping";
         public string crouchBool = "IsCrouched";
+        public string runBool = "IsRunning";
 
     }
 
@@ -63,6 +64,7 @@ public class CharacterMovement : MonoBehaviour
 	float horizontal;
     bool jumping;
     bool crouching;
+    bool running;
 
     bool resetGravity;
     float gravity;
@@ -131,11 +133,19 @@ public class CharacterMovement : MonoBehaviour
 		animator.SetBool(animations.groundedBool, isGrounded());
         animator.SetBool(animations.jumpBool, jumping);
         animator.SetBool(animations.crouchBool, crouching);
+        animator.SetBool(animations.runBool, running);
+
     }
 
     public void Crouch()
-       {
+    {
         crouching = !crouching;
+    }
+
+    public void Run(bool State)
+    {
+        running = State;
+        
     }
 
 

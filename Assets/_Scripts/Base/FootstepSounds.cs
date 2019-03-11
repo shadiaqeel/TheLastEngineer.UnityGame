@@ -12,6 +12,8 @@ public class FootstepSounds : MonoBehaviour
 
     SoundController SController;
 
+    string AnimationState;
+
     // Use this for initialization
     void Start()
     {
@@ -24,8 +26,13 @@ public class FootstepSounds : MonoBehaviour
         }
     }
 
-    void PlayFootstepSound()
+    
+
+   
+    void PlayFootstepSound(string State)
     {
+        AnimationState=State;
+
         RaycastHit hit;
         Vector3 start = transform.position + transform.up;
         Vector3 dir = Vector3.down;
@@ -58,6 +65,84 @@ public class FootstepSounds : MonoBehaviour
             return;
         }
 
+                if (textureTypes.Length > 0)
+        {
+
+
+            if(AnimationState==null)
+                    return;
+
+
+            foreach (TextureType type in textureTypes)
+            {
+
+               
+                if (renderer.material.mainTexture == type.texture)
+                {
+    
+    
+                    if(AnimationState==null)
+                        return;
+    
+                    switch (AnimationState)
+                    {
+    
+                        case "Walk":
+    
+                        if(type.Walkfootstep==null)
+                          return;
+                        
+                        SController.PlaySound(audioS, type.Walkfootstep, true, 1, 1.2f);
+    
+                        break;
+    
+    
+                        case "Run":
+    
+                        if(type.Runfootstep==null)
+                          return;
+                        
+                        SController.PlaySound(audioS, type.Runfootstep, true, 1, 1.2f);
+    
+                        break;
+    
+                        case "Crouch":
+    
+                        if(type.Crouchfootstep==null)
+                          return;
+                        
+                        SController.PlaySound(audioS, type.Crouchfootstep, true, 1, 1.2f);
+    
+                        break;
+    
+    
+                        case "Land":
+    
+                        if(type.Landfootstep==null)
+                          return;
+                        
+                        SController.PlaySound(audioS, type.Landfootstep, true, 1, 1.2f);
+    
+                        break;
+    
+                        case "Jump":
+    
+                        if(type.Jumpfootstep==null)
+                          return;
+                        
+                        SController.PlaySound(audioS, type.Jumpfootstep, true, 1, 1.2f);
+    
+                        break;
+    
+                        default:
+                        return;
+    
+                    }
+                        
+                }    
+    
+            }
+/* 
         if (textureTypes.Length > 0)
         {
             foreach (TextureType type in textureTypes)
@@ -77,7 +162,9 @@ public class FootstepSounds : MonoBehaviour
                 }
             }
         }
+    */
     }
+}
 
     void PlayTerrainSound(Terrain t, Vector3 hitPoint)
     {
@@ -98,6 +185,81 @@ public class FootstepSounds : MonoBehaviour
 
             int textureIndex = TerrainSurfaceDetector.GetMainTexture(hitPoint);
 
+            if(AnimationState==null)
+                    return;
+
+
+            foreach (TextureType type in textureTypes)
+            {
+
+               
+                    if (t.terrainData.splatPrototypes[textureIndex].texture == type.texture)
+                    {
+
+
+                            if(AnimationState==null)
+                                 return;
+
+                            switch (AnimationState)
+                            {
+                              
+                                case "Walk":
+              
+                                if(type.Walkfootstep==null)
+                                  return;
+                                
+                                SController.PlaySound(audioS, type.Walkfootstep, true, 1, 1.2f);
+              
+                                break;
+              
+              
+                                case "Run":
+              
+                                if(type.Runfootstep==null)
+                                  return;
+                                
+                                SController.PlaySound(audioS, type.Runfootstep, true, 1, 1.2f);
+              
+                                break;
+              
+                                case "Crouch":
+              
+                                if(type.Crouchfootstep==null)
+                                  return;
+                                
+                                SController.PlaySound(audioS, type.Crouchfootstep, true, 1, 1.2f);
+              
+                                break;
+              
+              
+                                case "Land":
+              
+                                if(type.Landfootstep==null)
+                                  return;
+                                
+                                SController.PlaySound(audioS, type.Landfootstep, true, 1, 1.2f);
+              
+                                break;
+              
+                                case "Jump":
+              
+                                if(type.Jumpfootstep==null)
+                                  return;
+                                
+                                SController.PlaySound(audioS, type.Jumpfootstep, true, 1, 1.2f);
+              
+                                break;
+              
+                                default:
+                                return;
+              
+                            }
+                                
+                        }
+
+            }
+}
+/* 
             foreach (TextureType type in textureTypes)
             {
 
@@ -114,19 +276,33 @@ public class FootstepSounds : MonoBehaviour
                     }
                 }
             }
-        }
-    }
+
+*/
+        
+    
+ }
 
 }
+
+
 
 
 [System.Serializable]
 public class TextureType
 {
     public string name;
-    public Texture[] textures;
-    public AudioClip[] footstepSounds;
+   // public Texture[] textures;
+    public Texture texture;
+    
+    //public AudioClip[] footstepSounds;
+
+    public AudioClip  Walkfootstep ;
+    public AudioClip  Runfootstep ;
+    public AudioClip  Crouchfootstep ;
+    public AudioClip  Jumpfootstep ;
+    public AudioClip  Landfootstep ;
+   
 }
 
-
+// Walk  -   Run  - Crouch  - Land  - Jump
 
