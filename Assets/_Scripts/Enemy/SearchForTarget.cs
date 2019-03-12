@@ -44,9 +44,8 @@ List<TargetTag> myTargets;
 
 	if(priorityTarget != null){
 
-		 IsInLineOfSight = scanner.IsInLineOfSight(priorityTarget.transform.position, Vector3.up);
+		 IsInLineOfSight = scanner.IsInLineOfSight(priorityTarget.transform.position);
 
-		 //Debug.Log("IsInLineOfSight = " + IsInLineOfSight);
 
 		 if(IsInLineOfSight)
 		 {	
@@ -67,10 +66,8 @@ List<TargetTag> myTargets;
 		 {
 			 if(!(agent.destination == enemy.transform.position))
 			 { 
-				//Debug.Log(agent.destination);
 				 Debug.Log(3);
 				 IsMiss = true; 
-				// agent.speed = chaseSpeed;
 				 enemy.CurrentMove = Enemy.EnemyMoveState.RUN;
 				Scanner_OnScanReady ();
 			 }
@@ -123,7 +120,6 @@ List<TargetTag> myTargets;
 		else if (myTargets.Count == 1)
 			{
 				priorityTarget = myTargets [0];
-				//Debug.Log ("Targets = " + myTargets[0].transform.position);
 			}
 		else
 			{   SelectClosestTarget ();}

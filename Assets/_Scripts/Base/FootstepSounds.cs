@@ -92,7 +92,7 @@ public class FootstepSounds : MonoBehaviour
                         if(type.Walkfootstep==null)
                           return;
                         
-                        SController.PlaySound(audioS, type.Walkfootstep, true, 1, 1.2f);
+                        SController.PlaySound(audioS, type.Walkfootstep,0.5f, true, 1, 1.2f);
     
                         break;
     
@@ -102,7 +102,7 @@ public class FootstepSounds : MonoBehaviour
                         if(type.Runfootstep==null)
                           return;
                         
-                        SController.PlaySound(audioS, type.Runfootstep, true, 1, 1.2f);
+                        SController.PlaySound(audioS, type.Runfootstep, 0.5f,true, 1, 1.2f);
     
                         break;
     
@@ -111,7 +111,7 @@ public class FootstepSounds : MonoBehaviour
                         if(type.Crouchfootstep==null)
                           return;
                         
-                        SController.PlaySound(audioS, type.Crouchfootstep, true, 1, 1.2f);
+                        SController.PlaySound(audioS, type.Crouchfootstep, 0.2f ,true, 1, 1.2f);
     
                         break;
     
@@ -121,7 +121,7 @@ public class FootstepSounds : MonoBehaviour
                         if(type.Landfootstep==null)
                           return;
                         
-                        SController.PlaySound(audioS, type.Landfootstep, true, 1, 1.2f);
+                        SController.PlaySound(audioS, type.Landfootstep, 0.5f,true, 1, 1.2f);
     
                         break;
     
@@ -130,7 +130,7 @@ public class FootstepSounds : MonoBehaviour
                         if(type.Jumpfootstep==null)
                           return;
                         
-                        SController.PlaySound(audioS, type.Jumpfootstep, true, 1, 1.2f);
+                        SController.PlaySound(audioS, type.Jumpfootstep, 0.5f,true, 1, 1.2f);
     
                         break;
     
@@ -208,7 +208,7 @@ public class FootstepSounds : MonoBehaviour
                                 if(type.Walkfootstep==null)
                                   return;
                                 
-                                SController.PlaySound(audioS, type.Walkfootstep, true, 1, 1.2f);
+                                SController.PlaySound(audioS, type.Walkfootstep, 0.3f,true, 1, 1.2f);
               
                                 break;
               
@@ -218,7 +218,7 @@ public class FootstepSounds : MonoBehaviour
                                 if(type.Runfootstep==null)
                                   return;
                                 
-                                SController.PlaySound(audioS, type.Runfootstep, true, 1, 1.2f);
+                                SController.PlaySound(audioS, type.Runfootstep, 0.5f,true, 1, 1.2f);
               
                                 break;
               
@@ -227,7 +227,7 @@ public class FootstepSounds : MonoBehaviour
                                 if(type.Crouchfootstep==null)
                                   return;
                                 
-                                SController.PlaySound(audioS, type.Crouchfootstep, true, 1, 1.2f);
+                                SController.PlaySound(audioS, type.Crouchfootstep,0.1f, true, 1, 1.2f);
               
                                 break;
               
@@ -237,7 +237,7 @@ public class FootstepSounds : MonoBehaviour
                                 if(type.Landfootstep==null)
                                   return;
                                 
-                                SController.PlaySound(audioS, type.Landfootstep, true, 1, 1.2f);
+                                SController.PlaySound(audioS, type.Landfootstep, 0.2f,true, 1, 1.2f);
               
                                 break;
               
@@ -246,7 +246,7 @@ public class FootstepSounds : MonoBehaviour
                                 if(type.Jumpfootstep==null)
                                   return;
                                 
-                                SController.PlaySound(audioS, type.Jumpfootstep, true, 1, 1.2f);
+                                SController.PlaySound(audioS, type.Jumpfootstep, 0.2f,true, 1, 1.2f);
               
                                 break;
               
@@ -303,6 +303,8 @@ public class TextureType
     public AudioClip  Landfootstep ;
    
 }
+
+
 
 // Walk  -   Run  - Crouch  - Land  - Jump
 

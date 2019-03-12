@@ -89,6 +89,8 @@ public class CameraController : MonoBehaviour
     {
         mainCamera = Camera.main;
         pivot = transform.GetChild(0);
+        target= GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     // Update is called once per frame

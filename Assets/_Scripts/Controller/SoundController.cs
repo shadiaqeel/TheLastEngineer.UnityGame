@@ -3,9 +3,10 @@ using System.Collections;
 
 public class SoundController : MonoBehaviour {
 
-	public void PlaySound (AudioSource audioS, AudioClip clip, bool randomizePitch = false, float randomPitchMin = 1, float randomPitchMax = 1) {
+	public void PlaySound (AudioSource audioS, AudioClip clip,float volume, bool randomizePitch = false, float randomPitchMin = 1, float randomPitchMax = 1) {
 
 		audioS.clip = clip;
+		audioS.volume=volume;
 
 		if (randomizePitch == true) {
 			audioS.pitch = Random.Range (randomPitchMin, randomPitchMax);

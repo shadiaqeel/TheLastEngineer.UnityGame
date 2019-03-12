@@ -56,7 +56,7 @@ SphereCollider rangeTrigger;
 			if (target == null)
 				continue;
 
-			if (!IsInLineOfSight (results[i].transform.position, Vector3.up))
+			if (!IsInLineOfSight (results[i].transform.position))
 				continue;
 			targets.Add (target);
 		}
@@ -77,7 +77,7 @@ SphereCollider rangeTrigger;
 
 
 
-	public bool IsInLineOfSight (  Vector3 target, Vector3 offset)
+	public bool IsInLineOfSight (  Vector3 target)
 		{
 			
 			Transform origin = this.transform;
@@ -86,9 +86,9 @@ SphereCollider rangeTrigger;
 			if (Vector3.Angle (Vector3.forward, transform.InverseTransformPoint(target)) < fieldOfView / 2) {
 				float distanceToTarget = Vector3.Distance (origin.position, target);
 
-				Debug.DrawRay(origin.position + offset + origin.forward * .3f, direction.normalized,Color.cyan);
+				Debug.DrawRay(origin.position  + origin.forward * .3f, direction.normalized,Color.cyan);
 				// something blocking our view?
-				if (Physics.Raycast (origin.position + offset + origin.forward * .3f, direction.normalized, distanceToTarget, mask)) {
+				if (Physics.Raycast (origin.position  + origin.forward * .3f, direction.normalized, distanceToTarget, mask)) {
 					return false;
 				}
 

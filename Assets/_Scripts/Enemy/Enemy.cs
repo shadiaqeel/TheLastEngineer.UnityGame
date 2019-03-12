@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
 
     private NavMeshAgent agent;
 
+    private Animator anim;
 
     public SearchForTarget  Target;
 
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour {
         patrol = GetComponent<Patrol>();
         Target = GetComponent<SearchForTarget>();
         agent = GetComponent<NavMeshAgent>();
+        anim= GetComponent<Animator>();
 
 
     }
@@ -48,11 +50,18 @@ public class Enemy : MonoBehaviour {
     }
 
 
+/* 
+ void OnAnimatorMove()
+    {
+        //// Update position based on animation movement using navigation surface height
+
+        Vector3 position = anim.rootPosition;
+        position.y = agent.nextPosition.y;
+        transform.position = position;
+    }
 
 
-
-
-
+*/
 
 
 
