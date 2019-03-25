@@ -236,6 +236,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
+
+
+
     //This moves the camera forward when we hit a wall
     void MoveCamUp(RaycastHit hit, Vector3 pivotPos, Vector3 dir, Transform cameraT)
     {

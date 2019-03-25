@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using ThelastEngineering.Shared;
+
+
+
+namespace ThelastEngineering.Player
+{
+    
+
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CharacterController))]
@@ -59,12 +67,12 @@ public class CharacterMovement : MonoBehaviour
 
    [SerializeField]
     public MovementSettings movement;
+
+    PlayerState state;
 	Vector3 airControl;
 	float vertical;
 	float horizontal;
-    bool jumping;
-    bool crouching;
-    bool running;
+
 
     bool resetGravity;
     float gravity;
@@ -73,10 +81,15 @@ public class CharacterMovement : MonoBehaviour
 
 
 
+
+
+
+
     void Awake()
     {
         animator = GetComponent<Animator>();
-        animator.avatar = GetComponentsInChildren<Animator>()[1].avatar;     //Setup the animator with the child avatar
+         //Setup the animator with the child avatar
+        animator.avatar = GetComponentsInChildren<Animator>()[1].avatar;    
 
     }
 
@@ -84,16 +97,34 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        state = GetComponent<PlayerState>();
     }
 
     // Update is called once per frame
     void Update()
     {
-		AirControl (vertical, horizontal);
-        ApplyGravity();
+        if(state.IsAlive)
+        {
+            Animate(state.Vertical,state.Horizontal);
+            AirControl (vertical, horizontal);
+            ApplyGravity();
 
-        //isGrounded = characterController.isGrounded;
+
+            if(state.wantToJump)
+            {
+                Jump();
+                state.wantToJump=false;
+            }
+
+
+        }
     }
+
+
+
+
+
+
 
 
 #region Methodes
@@ -111,6 +142,9 @@ public class CharacterMovement : MonoBehaviour
 	}
 
 
+
+
+
     bool isGrounded () {
 		RaycastHit hit;
 		Vector3 start = transform.position + transform.up;
@@ -123,43 +157,49 @@ public class CharacterMovement : MonoBehaviour
 		return false;
 	}
 
+
+
     //Animates the character and root motion handles the movement
     public void Animate(float vertical, float horizontal)
     {
+        
 		this.vertical = vertical;
 		this.horizontal = horizontal;
         animator.SetFloat(animations.verticalVelocityFloat, vertical);
         animator.SetFloat(animations.horizontalVelocityFloat, horizontal);
 		animator.SetBool(animations.groundedBool, isGrounded());
-        animator.SetBool(animations.jumpBool, jumping);
-        animator.SetBool(animations.crouchBool, crouching);
-        animator.SetBool(animations.runBool, running);
+        animator.SetBool(animations.jumpBool, state.jumping);
+        animator.SetBool(animations.crouchBool, state.crouching);
+        animator.SetBool(animations.runBool, state.running);
 
     }
 
-    public void Crouch()
-    {
-        crouching = !crouching;
-    }
-
-    public void Run(bool State)
-    {
-        running = State;
-        
-    }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+#region  Jumping
 
     //Makes the character jump
     public void Jump()
     {
-        if (jumping)
+        if (state.jumping)
             return;
 
 		if (isGrounded())
         {
-            jumping = true;
+            state.jumping = true;
+            physics.airSpeed = Vector3.Magnitude( new Vector3(animator.velocity.x,0,animator.velocity.z))*1.5f;
             StartCoroutine(StopJump());
         }
     }
@@ -168,7 +208,7 @@ public class CharacterMovement : MonoBehaviour
     IEnumerator StopJump()
     {
         yield return new WaitForSeconds(movement.jumpTime);
-        jumping = false;
+        state.jumping = false;
     }
 
     //Apply downward force to the character when we aren't jumping
@@ -191,7 +231,7 @@ public class CharacterMovement : MonoBehaviour
 
         Vector3 gravityVector = new Vector3();
 
-        if (!jumping)
+        if (!state.jumping)
         {
             gravityVector.y -= gravity;
         }
@@ -203,9 +243,12 @@ public class CharacterMovement : MonoBehaviour
         characterController.Move(gravityVector * Time.deltaTime);
     }
 
-    
+
+#endregion Jumping
 
 
 #endregion Methodes
     
+}
+
 }
