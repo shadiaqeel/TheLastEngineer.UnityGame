@@ -65,6 +65,7 @@
      <Compile Include="Assets\_Scripts\Controller\SoundController.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyAI.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyState.cs" />
+     <Compile Include="Assets\_Scripts\Inventory\Element.cs" />
      <Compile Include="Assets\_Scripts\Inventory\Item.cs" />
      <Compile Include="Assets\_Scripts\Inventory\Tool.cs" />
      <Compile Include="Assets\_Scripts\Inventory\Weapon.cs" />

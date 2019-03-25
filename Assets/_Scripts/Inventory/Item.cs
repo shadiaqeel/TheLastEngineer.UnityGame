@@ -15,7 +15,7 @@ namespace ThelastEngineering.Inventory
     {
 
         public enum ItemType
-        {Item,Tool,Weapon}
+        {Element,Tool,Weapon}
 
         [System.Serializable]
         public class PlayerSettings
@@ -38,13 +38,13 @@ namespace ThelastEngineering.Inventory
 
 
 
-         [SerializeField]internal  ItemType Type;
+        [SerializeField]internal  ItemType Type;
         [SerializeField]internal int ID;
         [SerializeField]internal string name;
      
         [SerializeField]internal string description;
         [SerializeField]internal Texture2D icon ;
-        [SerializeField]internal  Weaponhandler owner;
+        public   Weaponhandler owner;
         
     
         [SerializeField]internal SphereCollider col;
@@ -65,7 +65,7 @@ namespace ThelastEngineering.Inventory
 
 
 
-       internal virtual void Equip()
+       public virtual void Equip()
        {
            if (!owner)
                return;
@@ -76,30 +76,41 @@ namespace ThelastEngineering.Inventory
            ConstraintSource cs = new ConstraintSource();
            cs.sourceTransform = owner.positionSettings.rightHand;
            cs.weight = 1;
-
-            Debug.Log(parentConstraint==null);
            parentConstraint.AddSource(cs);
-           parentConstraint.
-           transform.localPosition = playerSettings.equipPosition;
-           Quaternion equipRot = Quaternion.Euler(playerSettings.equipRotation);
-           transform.localRotation = equipRot;
+            Debug.Log(0000);
+           parentConstraint.SetTranslationOffset(0,playerSettings.equipPosition);
+           parentConstraint.SetRotationOffset(0,playerSettings.equipRotation);
+
+           
+
+           //transform.localPosition = playerSettings.equipPosition;
+           //Quaternion equipRot = Quaternion.Euler(playerSettings.equipRotation);
+           //transform.localRotation = equipRot;
        }
 
 
+
+
+
+
+
+
        //Unequips the weapon and places it to the desired location
-       internal virtual void  Unequip()
+       public virtual void  Unequip()
        {
            if (!owner)
                return;
-           //transform.SetParent(owner.positionSettings.UnequipSpot);
+
+        
            ConstraintSource cs = new ConstraintSource();
            cs.sourceTransform = owner.positionSettings.rightHand;
            cs.weight = 1;
         
-           parentConstraint.SetSource(0,cs);
-           transform.localPosition = playerSettings.unequipPosition;
-           Quaternion unEquipRot = Quaternion.Euler(playerSettings.unequipRotation);
-           transform.localRotation = unEquipRot;
+           parentConstraint.AddSource(cs);
+
+           parentConstraint.SetTranslationOffset(0,playerSettings.unequipPosition);
+           parentConstraint.SetRotationOffset(0,playerSettings.unequipRotation);
+
        }
 
 

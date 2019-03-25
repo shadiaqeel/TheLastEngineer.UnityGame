@@ -11,6 +11,7 @@ TagManager:
   - Sound Controller
   - Fire
   - Item
+  - taked
   layers:
   - Default
   - TransparentFX

@@ -842,13 +842,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSettings:
-    equipPosition: {x: 0, y: 0, z: 0}
-    equipRotation: {x: 0, y: 0, z: 0}
-    unequipPosition: {x: 0, y: 0, z: 0}
-    unequipRotation: {x: 0, y: 0, z: 0}
+    equipPosition: {x: 0.13, y: -0.05, z: -0.06}
+    equipRotation: {x: 0, y: 0, z: -134.27}
+    unequipPosition: {x: -0.01, y: 0.13, z: 0}
+    unequipRotation: {x: 100.3, y: 0, z: 168.6}
   Type: 1
   ID: 0
-  name: Axe2
+  name: Axe1
   description: 
   icon: {fileID: 0}
   owner: {fileID: 0}
@@ -2159,14 +2159,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632315488}
-  m_LocalRotation: {x: -0.000000074505806, y: 0.000000074505806, z: -0.000000059604645,
-    w: 1}
-  m_LocalPosition: {x: 0.192, y: -0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.15, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1993953052}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1681327488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,6 +2177,7 @@ GameObject:
   - component: {fileID: 1681327489}
   - component: {fileID: 1681327491}
   - component: {fileID: 1681327490}
+  - component: {fileID: 1681327492}
   m_Layer: 0
   m_Name: Parez_low
   m_TagString: Untagged
@@ -2243,6 +2243,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681327488}
+  m_Mesh: {fileID: 4300000, guid: 71ba46ced65617541b6790b9b574c854, type: 3}
+--- !u!64 &1681327492
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681327488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 71ba46ced65617541b6790b9b574c854, type: 3}
 --- !u!144 &1718209890
 CharacterJoint:
@@ -2451,7 +2465,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1739273457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84594e3fcb2f7bd41b46c11dddbe79f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cd231a0345a12f4393df5db99759fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSettings:
@@ -2459,14 +2473,15 @@ MonoBehaviour:
     equipRotation: {x: 0, y: 0, z: 0}
     unequipPosition: {x: 0, y: 0, z: 0}
     unequipRotation: {x: 0, y: 0, z: 0}
-  Type: 1
+  Type: 0
   ID: 0
-  name: Axe1
+  name: axe
   description: 
   icon: {fileID: 0}
   owner: {fileID: 0}
   col: {fileID: 0}
   equipped: 0
+  orderOfWeapon: 2
 --- !u!135 &1739273460
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2914,13 +2929,12 @@ MonoBehaviour:
   positionSettings:
     rightHand: {fileID: 4915789339076892}
     leftHand: {fileID: 4069653062331988}
-    UnequipSpot: {fileID: 4810906641629866}
-    Backpack: {fileID: 1993953052}
+    UnequipSpot: {fileID: 1993953052}
+    Backpack: {fileID: 2019272472}
     Weapons: {fileID: 60983812}
     FirstUnequipWeaponSpot: {fileID: 1468958149}
     SecondUnequipWeaponSpot: {fileID: 1632315489}
     ToolUnequipWeaponSpot: {fileID: 4637724851086220}
-  currentWeaponindex: 0
 --- !u!114 &1031392128575556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6364,6 +6378,7 @@ GameObject:
   - component: {fileID: 1962388229205543289}
   - component: {fileID: 1962388229202119007}
   - component: {fileID: 1962388229203250079}
+  - component: {fileID: 1962388229205513562}
   m_Layer: 0
   m_Name: Parez_low
   m_TagString: Untagged
@@ -6371,6 +6386,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1962388229205513562
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962388229205513561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 71ba46ced65617541b6790b9b574c854, type: 3}
 --- !u!1 &1962388229205513565
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,6 +6860,31 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 4775829554985704}
+    - target: {fileID: 6583373632353155612, guid: 9b974c1a2f24178468b13119004a0bb0,
+        type: 3}
+      propertyPath: cameraSettings.camPositionOffsetMiddle.z
+      value: -1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583373632353155612, guid: 9b974c1a2f24178468b13119004a0bb0,
+        type: 3}
+      propertyPath: cameraSettings.camPositionOffsetRight.z
+      value: -1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583373632353155612, guid: 9b974c1a2f24178468b13119004a0bb0,
+        type: 3}
+      propertyPath: cameraSettings.camPositionOffsetLeft.z
+      value: -1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583373632353155612, guid: 9b974c1a2f24178468b13119004a0bb0,
+        type: 3}
+      propertyPath: cameraSettings.camPositionOffsetRight.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583373632353155612, guid: 9b974c1a2f24178468b13119004a0bb0,
+        type: 3}
+      propertyPath: cameraSettings.camPositionOffsetLeft.y
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3582795542046798800, guid: 9b974c1a2f24178468b13119004a0bb0,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -6864,12 +6918,12 @@ PrefabInstance:
     - target: {fileID: 8398033918756745565, guid: 9b974c1a2f24178468b13119004a0bb0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8398033918756745565, guid: 9b974c1a2f24178468b13119004a0bb0,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8398033918756745565, guid: 9b974c1a2f24178468b13119004a0bb0,
         type: 3}

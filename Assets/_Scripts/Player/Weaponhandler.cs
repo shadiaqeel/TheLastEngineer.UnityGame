@@ -12,7 +12,7 @@ namespace ThelastEngineering.Player
 
         #region Settings
 
-        [System.Serializable]
+       [System.Serializable]
         public class PositionSettings
         {
             public Transform rightHand;
@@ -33,12 +33,15 @@ namespace ThelastEngineering.Player
 
 
         private Item currentWeapon;
+        private Weapon firstWeapon;
+        private Weapon secondWeapon; 
+        private Tool tool;
 
-
-        public int currentWeaponindex;
-
-
+        
         #endregion Settings
+
+
+
 
 
         #region Initialization
@@ -58,12 +61,52 @@ namespace ThelastEngineering.Player
         #endregion Initialization
 
 
+
+
+
+
+
         #region PickUP
         public void PickUp (Item item)
         {
+                item.owner = this;
 
-            item.owner = this;
-            item.Unequip();
+                //to reduce load on vision sensor
+                item.gameObject.tag = "taked"; 
+                item.gameObject.layer=0;
+
+                switch (item.Type)
+                {
+                    case Item.ItemType.Element:
+                    ((Element)item).Unequip();
+                    item.transform.SetParent (positionSettings.Backpack);
+                    break;
+
+                    case Item.ItemType.Tool:
+                    ((Tool)item).Unequip();
+                    tool = (Tool)item;
+                    item.transform.SetParent (positionSettings.Weapons);
+
+                    break;
+
+                    case Item.ItemType.Weapon:
+                    ((Weapon)item).Unequip();
+                    item.transform.SetParent (positionSettings.Weapons);
+
+                    if(firstWeapon==null)
+                    {
+                        ((Weapon)item).orderOfWeapon =1;
+                    }else{
+                        ((Weapon)item).orderOfWeapon =2;
+                    }
+                    
+                    break;
+                    
+
+                }
+     
+
+
 
         }
 
@@ -73,7 +116,12 @@ namespace ThelastEngineering.Player
 
         #region SwitchWeapons
 
-        public void SwitchWeapons (){}
+        public void SwitchWeapons (){
+
+
+        
+            
+        }
 
 
         #endregion SwitchWeapons

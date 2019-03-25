@@ -112,9 +112,7 @@ private void OnTriggerStay(Collider other)
 	{
 		if (other.tag == targetTag) 
 		{
-			Debug.Log(other);
-			Debug.Log(targets.Contains(other.gameObject));
-			Debug.Log("--"+targets.Count);
+
 
 
 			if (IsInLineOfSight (other.transform.position))
@@ -128,15 +126,15 @@ private void OnTriggerStay(Collider other)
 	    	{
 	
 	    	 ClosestTarget();
-
+			
 			 if(OnDetectTarget!=null)
 	    	 	OnDetectTarget();
 
-			 Debug.Log(0);
+			
 	    	 }
 		}
 
-		
+		 Debug.Log(targets.Count==0);
 	     if(targets.Count==0)
 	    		if(ownerType == OwnerType.Enemy)
 	    			{
@@ -144,7 +142,7 @@ private void OnTriggerStay(Collider other)
 	    			}
 	    			else 
 	    			{
-						Debug.Log(1);
+						
 	    				player.item =  null;
 	    			}
 		
@@ -152,9 +150,14 @@ private void OnTriggerStay(Collider other)
 }
 
 private void OnTriggerExit(Collider other) {
-	Debug.Log(4);
+	
+	RemoveItem(other.gameObject);
+
+}
+public void RemoveItem(GameObject other)
+{
 	if(targets.Contains(other.gameObject))
-			targets.Remove (other.gameObject);
+		targets.Remove (other.gameObject);
 
 }
 

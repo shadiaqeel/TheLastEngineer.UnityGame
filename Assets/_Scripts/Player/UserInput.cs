@@ -379,7 +379,6 @@ namespace ThelastEngineering.Player
 	  #region Buttons
 	  void ButtonsLogic()
 	  {
-			Debug.Log(item);
 		  if(item != null  && item.GetComponent<Item>().owner==null)
 		  {
 			  input.PickUpbtn.gameObject.SetActive(true);
@@ -387,10 +386,13 @@ namespace ThelastEngineering.Player
 			  label.text = item.GetComponent<Item>().name;
 
 			  if(CrossPlatformInputManager.GetButtonDown ("PickUp"))
-			  		weaponHandler.PickUp(item.GetComponent<Item>()); 
+			  	{	weaponHandler.PickUp(item.GetComponent<Item>());
+				   	vision.RemoveItem(item.gameObject);
+				 }
 		  }else
 		  {
- 			input.PickUpbtn.gameObject.SetActive(false);		 
+ 			input.PickUpbtn.gameObject.SetActive(false);
+			 		 
 		  }
 	  }
 	  #endregion Buttons

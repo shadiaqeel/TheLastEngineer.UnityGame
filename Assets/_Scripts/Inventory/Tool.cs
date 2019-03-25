@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 
 namespace ThelastEngineering.Inventory
@@ -8,12 +9,6 @@ namespace ThelastEngineering.Inventory
     public class Tool : Item
     {
 
-       // [System.Serializable]
-        //public class Setting 
-       // {
-            
-
-       // }
 
 
 
@@ -21,9 +16,31 @@ namespace ThelastEngineering.Inventory
         void Awake()
         {
             base.init();
-            base.Type =ItemType.Tool;
+            Type =ItemType.Tool;
         }
     
+        public override void Equip()
+        {
+
+
+
+        }
+        public override void Unequip()
+        {
+            if (!owner)
+            return;
+            
+            ConstraintSource cs = new ConstraintSource();
+           cs.sourceTransform = owner.positionSettings.ToolUnequipWeaponSpot;
+           cs.weight = 1;
+        
+           parentConstraint.AddSource(cs);
+
+           parentConstraint.SetTranslationOffset(0,playerSettings.unequipPosition);
+           parentConstraint.SetRotationOffset(0,playerSettings.unequipRotation);
+            
+        }
+
 
     }
 }
