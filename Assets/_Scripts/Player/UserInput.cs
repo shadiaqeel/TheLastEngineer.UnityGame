@@ -33,7 +33,10 @@ namespace ThelastEngineering.Player
         //public string dropWeaponButton = "DropWeapon";
         public ButtonHandler switchWeaponBtn ;
 		public ButtonHandler PickUpbtn ;
-		
+		public ButtonHandler firstWeaponbtn ;
+		public ButtonHandler secondWeaponbtn ;
+		public ButtonHandler releaseWeaponbtn;
+		public ButtonHandler Attackbtn;
 		
     }
 	
@@ -79,6 +82,9 @@ namespace ThelastEngineering.Player
 		//Dictionary <Weapon, GameObject> crosshairPrefabMap = new Dictionary<Weapon, GameObject>();
 
 	#endregion Variables
+
+
+
 
 
 
@@ -253,6 +259,7 @@ namespace ThelastEngineering.Player
 	  #region Weapon 
 	     void WeaponLogic()
 	    {
+			/* 
 	        if (!weaponHandler)
 	            return;
 
@@ -267,7 +274,7 @@ namespace ThelastEngineering.Player
 
 
 
-			/* 
+			
 			if (weaponHandler.currentWeapon) {
 
 				Ray aimRay = new Ray (TPSCamera.transform.position, TPSCamera.transform.forward);
@@ -379,6 +386,10 @@ namespace ThelastEngineering.Player
 	  #region Buttons
 	  void ButtonsLogic()
 	  {
+
+		if (!weaponHandler)
+	    return;
+
 		  if(item != null  && item.GetComponent<Item>().owner==null)
 		  {
 			  input.PickUpbtn.gameObject.SetActive(true);
@@ -394,12 +405,46 @@ namespace ThelastEngineering.Player
  			input.PickUpbtn.gameObject.SetActive(false);
 			 		 
 		  }
+
+
+
+
+
+			input.firstWeaponbtn.gameObject.SetActive(weaponHandler.firstWeapon != null);
+			input.secondWeaponbtn.gameObject.SetActive(weaponHandler.secondWeapon != null);
+			input.releaseWeaponbtn.gameObject.SetActive(weaponHandler.currentWeapon != null);
+
+
+				if(CrossPlatformInputManager.GetButtonUp ("FirstWeapon"))
+			  	{	weaponHandler.SwitchWeapons(1);
+				 }
+				
+				if(CrossPlatformInputManager.GetButtonUp ("SecondWeapon"))
+			  	{	weaponHandler.SwitchWeapons(2);
+				 }
+
+				if(CrossPlatformInputManager.GetButtonUp ("Release"))
+			  	{	weaponHandler.Drop();
+				 }
+
+				if(CrossPlatformInputManager.GetButton("Fire"))
+			  	{	weaponHandler.Fire(true);
+				 }
+				 else
+				 {
+					 weaponHandler.Fire(false);
+				 }
+				
+		
+		
+
+
+
 	  }
 	  #endregion Buttons
 
 
 	  
-
 
 
 

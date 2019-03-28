@@ -20,9 +20,8 @@ namespace ThelastEngineering.Inventory
 
         public override void Equip()
         {
-
-
-
+           base.Equip();
+            
         }
         public override void Unequip()
         {
@@ -32,7 +31,8 @@ namespace ThelastEngineering.Inventory
 
             ConstraintSource cs = new ConstraintSource();
 
-
+            if(parentConstraint.sourceCount>0)
+                parentConstraint.RemoveSource(0);
 
             if(orderOfWeapon==1)
             {

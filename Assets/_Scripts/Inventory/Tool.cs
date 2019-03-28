@@ -19,12 +19,7 @@ namespace ThelastEngineering.Inventory
             Type =ItemType.Tool;
         }
     
-        public override void Equip()
-        {
 
-
-
-        }
         public override void Unequip()
         {
             if (!owner)

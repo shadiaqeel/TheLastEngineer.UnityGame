@@ -150,7 +150,7 @@ public class CharacterMovement : MonoBehaviour
 		Vector3 start = transform.position + transform.up;
 		Vector3 dir = Vector3.down;
 		float radius = characterController.radius;
-		if(Physics.SphereCast(start, radius, dir, out hit, characterController.height / 2, physics.groundLayers)) {
+		if(Physics.SphereCast(start, radius, dir, out hit, 2f, physics.groundLayers)) {
 			return true;
 		}
 

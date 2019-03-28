@@ -60,6 +60,8 @@
      <Compile Include="Assets\_Scripts\Base\StateClass.cs" />
      <Compile Include="Assets\_Scripts\Base\TerrainSurfaceDetector.cs" />
      <Compile Include="Assets\_Scripts\Base\VisionSensor.cs" />
+     <Compile Include="Assets\_Scripts\Behaviour\ChangeLayerWeight.cs" />
+     <Compile Include="Assets\_Scripts\Behaviour\Equip.cs" />
      <Compile Include="Assets\_Scripts\Behaviour\Scream.cs" />
      <Compile Include="Assets\_Scripts\Camera\CameraController.cs" />
      <Compile Include="Assets\_Scripts\Controller\SoundController.cs" />

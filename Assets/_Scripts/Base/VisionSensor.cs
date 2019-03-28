@@ -25,7 +25,7 @@ namespace ThelastEngineering.Shared
 	[SerializeField] LayerMask mask;
 
 	[SerializeField]  private float range = 10.0f;
-	[SerializeField] private float angle;
+	[SerializeField] private float _angle=0;
 
 	[SerializeField] private Transform _eyes;
 
@@ -47,11 +47,11 @@ namespace ThelastEngineering.Shared
 
 	public event System.Action OnDetectTarget; 
 
-
-
-
-
 	#endregion 
+
+
+
+
 
 
 		// Use this for initialization
@@ -68,7 +68,7 @@ namespace ThelastEngineering.Shared
 			visionSensor.layer = 9;
 			col = visionSensor.AddComponent<SphereCollider>();
 	        col.isTrigger = true;
-	        col.center += transform.up * 0.9f;
+	        col.center = _eyes.transform.localPosition;
 	        col.radius = range;
 
 			
@@ -96,6 +96,18 @@ namespace ThelastEngineering.Shared
 		}
 
 
+		/// <summary>
+		/// Update is called every frame, if the MonoBehaviour is enabled.
+		/// </summary>
+		void FixedUpdate()
+		{
+			col.center = _eyes.transform.localPosition;
+	        col.radius = range;
+
+			Debug.DrawRay(_eyes.position,Vector3.forward,Color.cyan);
+		}
+
+
 
 
 
@@ -120,6 +132,10 @@ private void OnTriggerStay(Collider other)
 					if(!targets.Contains(other.gameObject))
 						targets.Add (other.gameObject);
 				}
+				else if(targetTag == "Item")
+				{
+					RemoveItem(other.gameObject);
+				}
 		
 		
 	    if( targets.Count >=1 )
@@ -134,7 +150,6 @@ private void OnTriggerStay(Collider other)
 	    	 }
 		}
 
-		 Debug.Log(targets.Count==0);
 	     if(targets.Count==0)
 	    		if(ownerType == OwnerType.Enemy)
 	    			{
@@ -239,7 +254,6 @@ public void RemoveItem(GameObject other)
 			}
 			else 
 			{
-				Debug.Log("99 =" + priorityTarget);
 				player.item =  priorityTarget;
 
 			}
@@ -250,9 +264,12 @@ public void RemoveItem(GameObject other)
 		public bool IsInLineOfSight (  Vector3 target)
 		{
 
-			Transform origin = this.transform;
 			Vector3 direction = target - _eyes.position;
-			if (Vector3.Angle (Vector3.forward, _eyes.transform.InverseTransformPoint(target)) < fieldOfView / 2) {
+			
+
+			//if (Vector3.Angle (_eyes.forward, _eyes.transform.InverseTransformPoint(target)) < fieldOfView / 2) {
+			//if ( _eyes.transform.InverseTransformPoint(target).z > 0) {
+			if(Vector3.Angle (_eyes.forward, direction)< fieldOfView / 2){
 				float distanceToTarget = Vector3.Distance (_eyes.position, target);
 				Debug.DrawRay(_eyes.position , direction.normalized,Color.cyan);
 				// something blocking our view?
@@ -272,7 +289,10 @@ public void RemoveItem(GameObject other)
 
 	#region Gizmos
 			void OnDrawGizmos () 
-		{
+		{	
+			if(_eyes==null || col == null)
+			return;
+
 			Gizmos.color = Color.yellow;
 			Gizmos.DrawLine (_eyes.position, _eyes.position + GetViewAngle(fieldOfView / 2) * col.radius);
 			Gizmos.DrawLine (_eyes.position, _eyes.position + GetViewAngle(-fieldOfView / 2) * col.radius);
@@ -280,7 +300,7 @@ public void RemoveItem(GameObject other)
 
 		Vector3 GetViewAngle (float angle) 
 		{
-			float radian = (angle + _eyes.transform.eulerAngles.y) * Mathf.Deg2Rad;
+			float radian = (_angle+angle + _eyes.transform.eulerAngles.y) * Mathf.Deg2Rad;
 			return new Vector3 (Mathf.Sin(radian), 0, Mathf.Cos(radian));
 		}
 	#endregion Gizmos

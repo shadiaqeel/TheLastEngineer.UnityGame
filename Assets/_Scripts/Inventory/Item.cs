@@ -10,7 +10,7 @@ using ThelastEngineering.Player;
 namespace ThelastEngineering.Inventory
 {
     [RequireComponent(typeof(ParentConstraint))]
-    [RequireComponent(typeof(SphereCollider))]
+    [RequireComponent(typeof(Rigidbody))]
     public class Item : MonoBehaviour
     {
 
@@ -38,7 +38,7 @@ namespace ThelastEngineering.Inventory
 
 
 
-        [SerializeField]internal  ItemType Type;
+        internal  ItemType Type;
         [SerializeField]internal int ID;
         [SerializeField]internal string name;
      
@@ -47,7 +47,9 @@ namespace ThelastEngineering.Inventory
         public   Weaponhandler owner;
         
     
-        [SerializeField]internal SphereCollider col;
+        //[SerializeField]internal SphereCollider col;
+        [SerializeField]internal Rigidbody rig;
+
 
         [SerializeField]internal  bool equipped;
 
@@ -57,7 +59,8 @@ namespace ThelastEngineering.Inventory
         {
 
             parentConstraint= GetComponent<ParentConstraint>();
-            col = GetComponent<SphereCollider>();
+            //col = GetComponent<SphereCollider>();
+            rig=GetComponent<Rigidbody>();
         }
 
 
@@ -76,17 +79,20 @@ namespace ThelastEngineering.Inventory
            ConstraintSource cs = new ConstraintSource();
            cs.sourceTransform = owner.positionSettings.rightHand;
            cs.weight = 1;
-           parentConstraint.AddSource(cs);
-            Debug.Log(0000);
+
+            if(parentConstraint.sourceCount>0)
+                parentConstraint.RemoveSource(0);
+            parentConstraint.AddSource(cs);
+         
            parentConstraint.SetTranslationOffset(0,playerSettings.equipPosition);
            parentConstraint.SetRotationOffset(0,playerSettings.equipRotation);
-
-           
 
            //transform.localPosition = playerSettings.equipPosition;
            //Quaternion equipRot = Quaternion.Euler(playerSettings.equipRotation);
            //transform.localRotation = equipRot;
        }
+
+  
 
 
 
@@ -103,15 +109,33 @@ namespace ThelastEngineering.Inventory
 
         
            ConstraintSource cs = new ConstraintSource();
-           cs.sourceTransform = owner.positionSettings.rightHand;
+           cs.sourceTransform = owner.positionSettings.FirstUnequipWeaponSpot;
            cs.weight = 1;
-        
-           parentConstraint.AddSource(cs);
+            Debug.Log(21212);
+            if(parentConstraint.sourceCount>0)
+                parentConstraint.RemoveSource(0);
+            parentConstraint.AddSource(cs);
 
            parentConstraint.SetTranslationOffset(0,playerSettings.unequipPosition);
            parentConstraint.SetRotationOffset(0,playerSettings.unequipRotation);
 
        }
+       
+       public void Drop()
+       {    
+                if(parentConstraint.sourceCount>0)
+                    parentConstraint.RemoveSource(0);
+
+                this.transform.SetParent(null);
+                owner = null;
+
+                rig.isKinematic =false;
+                //StartCoroutine()
+
+
+       }
+
+
 
 
 
