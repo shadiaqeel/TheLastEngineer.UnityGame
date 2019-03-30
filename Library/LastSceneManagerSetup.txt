@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/ZombiePlayer.unity
+- path: Assets/_Scenes/Create Animtation.unity
   isLoaded: 1
   isActive: 1

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ThelastEngineering.Enemy;
-using ThelastEngineering.Player;
+using ThelastEngineering.PlayerGroup;
 
 
 namespace ThelastEngineering.Shared
@@ -36,7 +36,7 @@ namespace ThelastEngineering.Shared
 	UserInput player;
 	
 
-	StateClass state;
+	CharacterState state;
 
 	List<GameObject> targets;
 
@@ -80,11 +80,11 @@ namespace ThelastEngineering.Shared
 			}
 			else 
 			{
-			player = transform.GetComponent<UserInput>();
+			player= transform.GetComponent<UserInput>();
 			}
 
 
-			state = transform.GetComponent<StateClass>();
+			state = transform.GetComponent<CharacterState>();
 
 
 
@@ -120,7 +120,7 @@ namespace ThelastEngineering.Shared
 private void OnTriggerStay(Collider other)
 {	
 	
-	if(state.visionState )
+	if(state.VisionState )
 	{
 		if (other.tag == targetTag) 
 		{

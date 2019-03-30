@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RootMotion.FinalIK;
 using ThelastEngineering.Inventory;
 
 
-namespace ThelastEngineering.Player
+namespace ThelastEngineering.PlayerGroup
 {    
 
-    public class Weaponhandler : MonoBehaviour
+    public class Weaponhandler : PlayerManager
     {
 
         #region Settings
@@ -37,7 +38,9 @@ namespace ThelastEngineering.Player
         public Weapon secondWeapon; 
         public Tool tool;
 
-         Animator anim;
+         
+
+         Item pickUpItem;
 
          private bool catchWeaponEvent = false;
 
@@ -51,13 +54,8 @@ namespace ThelastEngineering.Player
         #region Initialization
 
         
-        /// Awake is called when the script instance is being loaded.
        
-        void Awake()
-        {
-            anim = GetComponent<Animator>();
-            anim.avatar = GetComponentsInChildren<Animator>()[1].avatar;    
-        }
+
 
         // Update is called once per frame
         void Update()
@@ -66,11 +64,11 @@ namespace ThelastEngineering.Player
                 if(currentWeapon !=null)
                 {   
                     
-                    anim.SetInteger("WeaponID",currentWeapon.ID);
+                    player._anim.SetInteger("WeaponID",currentWeapon.ID);
           
                 }else{
                  
-                    anim.SetInteger("WeaponID",0);
+                    player._anim.SetInteger("WeaponID",0);
             
 
                 }
@@ -82,12 +80,31 @@ namespace ThelastEngineering.Player
 
 
 
+    [SerializeField] FullBodyBipedEffector[] effectors;
+    private InteractionSystem interactionSystem;
+    [SerializeField] InteractionObject interactionObject;
+
 
 
 
         #region PickUP
         public void PickUp (Item item)
-        {
+        {  
+            /*    
+            interactionSystem = GetComponent<InteractionSystem>();
+                pickUpItem = item;
+
+                	foreach (FullBodyBipedEffector e in effectors) {
+					interactionSystem.StartInteraction(e, interactionObject, true);
+				}
+                
+*/  
+
+                             //--------------------------------------------------------
+                             
+                 
+                player._anim.SetTrigger ("PickUp");
+                
                 item.owner = this;
 
                 //to reduce load on vision sensor
@@ -127,7 +144,7 @@ namespace ThelastEngineering.Player
                     
 
                 }
-     
+        
 
 
 
@@ -142,7 +159,7 @@ namespace ThelastEngineering.Player
 
         public void Fire (bool state)
         {
-            anim.SetBool("Fire",state);
+            player._anim.SetBool("Fire",state);
 
         }
 
@@ -157,7 +174,7 @@ namespace ThelastEngineering.Player
             
 
             if(currentWeapon!=null)
-                {anim.SetInteger("ItemLocation",0);
+                {player._anim.SetInteger("ItemLocation",0);
                     //(currentWeapon).Unequip();
                     }
 
@@ -166,7 +183,7 @@ namespace ThelastEngineering.Player
                 case 1:
 
                 if(currentWeapon!=firstWeapon)
-                {anim.SetInteger("ItemLocation",1);              
+                {player._anim.SetInteger("ItemLocation",1);              
                 //firstWeapon.Equip();
                 currentWeapon = firstWeapon;}
                 else {currentWeapon = null;}
@@ -175,7 +192,7 @@ namespace ThelastEngineering.Player
 
                 case 2:
                 if(currentWeapon!=secondWeapon)
-                {anim.SetInteger("ItemLocation",2);
+                {player._anim.SetInteger("ItemLocation",2);
                 //secondWeapon.Equip();
                 currentWeapon = secondWeapon;}
                 else {currentWeapon = null;}
@@ -231,8 +248,8 @@ namespace ThelastEngineering.Player
                         
             
 
-            anim.SetInteger("ItemLocation",0);
-            anim.SetTrigger("DropItem");
+            player._anim.SetInteger("ItemLocation",0);
+            player._anim.SetTrigger("DropItem");
 
 
             if(currentWeapon==firstWeapon)
@@ -260,12 +277,24 @@ namespace ThelastEngineering.Player
 
 
 
-      /*  
+      
 void OnAnimatorIK()
     {
-        if (!anim)
+        if (!player._anim)
             return;
+    /* 
+        if(anim.GetCurrentAnimatorStateInfo(2).IsTag("PickUp") && pickUpItem!=null)
+        {   
+            Debug.Log(2222222222);
+            anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0);
 
+            anim.SetIKPosition(AvatarIKGoal.LeftHand, pickUpItem.transform.position);
+            anim.SetIKRotation(AvatarIKGoal.LeftHand, pickUpItem.transform.localRotation);
+        }
+    */
+
+/*  
         if (currentWeapon && positionSettings.leftHand )
         {
             anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
@@ -281,8 +310,11 @@ void OnAnimatorIK()
             anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
             anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0);
         }
+
+
+        */ 
     }
-*/ 
+
         
 
 

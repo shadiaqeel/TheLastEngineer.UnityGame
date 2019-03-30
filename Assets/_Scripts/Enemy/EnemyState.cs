@@ -5,7 +5,7 @@ using ThelastEngineering.Shared;
 
 namespace ThelastEngineering.Enemy
 {
-public class EnemyState : StateClass {
+public class EnemyState : CharacterState {
 
 	public enum AIState
 	{ Idling , Patrolling , Chasing , Attacking }
@@ -18,7 +18,7 @@ public class EnemyState : StateClass {
 	// Use this for initialization
 	void Awake () {
         base.init();
-		base.visionState = true;
+		base.VisionState = true;
 	}
 	
 	// Update is called once per frame
@@ -27,10 +27,10 @@ public class EnemyState : StateClass {
 
 	if(CurrentAIState == AIState.Chasing)
 	{
-		base.visionState=false;
+		base.VisionState=false;
 	}else
 	{
-		base.visionState= true;
+		base.VisionState= true;
 	}
 
 	}

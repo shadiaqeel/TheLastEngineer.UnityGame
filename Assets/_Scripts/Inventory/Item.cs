@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
-using ThelastEngineering.Player;
+using ThelastEngineering.PlayerGroup;
 
 
 
@@ -111,7 +111,6 @@ namespace ThelastEngineering.Inventory
            ConstraintSource cs = new ConstraintSource();
            cs.sourceTransform = owner.positionSettings.FirstUnequipWeaponSpot;
            cs.weight = 1;
-            Debug.Log(21212);
             if(parentConstraint.sourceCount>0)
                 parentConstraint.RemoveSource(0);
             parentConstraint.AddSource(cs);

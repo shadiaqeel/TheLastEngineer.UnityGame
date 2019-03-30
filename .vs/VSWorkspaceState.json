@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Assets",
+    "\\Assets\\Plugins",
+    "\\Assets\\Plugins\\RootMotion",
+    "\\Assets\\Plugins\\RootMotion\\FinalIK",
+    "\\Assets\\Plugins\\RootMotion\\FinalIK\\Grounder",
+    "\\Assets\\_Scripts",
+    "\\Assets\\_Scripts\\Player"
+  ],
+  "SelectedNode": "\\Assets\\_Scripts\\Player\\CharacterMovement.cs",
+  "PreviewInSolutionExplorer": false
+}

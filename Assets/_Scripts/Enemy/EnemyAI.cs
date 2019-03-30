@@ -38,7 +38,7 @@ namespace ThelastEngineering.Enemy
 
     private EnemyState state;
 
-    private StateClass playerState;
+    private CharacterState playerState;
 
     public float ChaseSpeed = 1f;
 

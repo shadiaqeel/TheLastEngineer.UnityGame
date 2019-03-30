@@ -7,14 +7,12 @@ using ThelastEngineering.Shared;
 using ThelastEngineering.Inventory;
 
 
-namespace ThelastEngineering.Player
+namespace ThelastEngineering.PlayerGroup
 {
 	
 
-	public class UserInput : MonoBehaviour
+	public class UserInput : PlayerManager
 	{
-		public CharacterMovement characterMove { get; protected set; }
-		//public WeaponHandler weaponHandler { get; protected set; }
 
 
 	#region Setting classes
@@ -70,11 +68,8 @@ namespace ThelastEngineering.Player
 	    public Transform spine;
 	    bool aiming;
 
-		PlayerState state;
 
-		Weaponhandler weaponHandler;
 
-		VisionSensor vision;
 
 
 		public GameObject item;
@@ -96,10 +91,7 @@ namespace ThelastEngineering.Player
 	    // Use this for initialization
 	    void Start()
 	    {
-	        characterMove = GetComponent<CharacterMovement>();
-			state= GetComponent<PlayerState>();
-			weaponHandler = GetComponent<Weaponhandler>();
-			vision = GetComponent<VisionSensor>();
+			TPSCamera = Camera.main;
 			
 
 			//SetupCrosshairs ();
@@ -159,23 +151,24 @@ namespace ThelastEngineering.Player
 	    //Handles character logic
 	    void CharacterLogic()
 	    {
-	        if (!characterMove)
+	        if (!player._movement)
 	            return;
 
-			state.Horizontal = CrossPlatformInputManager.GetAxis(input.horizontalAxis);
-			state.Vertical = CrossPlatformInputManager.GetAxis(input.verticalAxis);
+			Horizontal = CrossPlatformInputManager.GetAxis(input.horizontalAxis);
+			Vertical = CrossPlatformInputManager.GetAxis(input.verticalAxis);
+
 	
 
 
 	        if (CrossPlatformInputManager.GetButtonDown(input.jumpButton))
-	            state.wantToJump = true;
+	            wantToJump = true;
 			if (CrossPlatformInputManager.GetButtonDown(input.crouchButton))
-	            state.crouching=!state.crouching ;
+	            crouching=!crouching ;
 
 			if (CrossPlatformInputManager.GetButtonDown(input.runButton))
-	            state.running=true;
+	            running=true;
 			if (CrossPlatformInputManager.GetButtonUp(input.runButton))
-	            state.running=false;
+	            running=false;
 
 
 
@@ -387,7 +380,7 @@ namespace ThelastEngineering.Player
 	  void ButtonsLogic()
 	  {
 
-		if (!weaponHandler)
+		if (!player._handler)
 	    return;
 
 		  if(item != null  && item.GetComponent<Item>().owner==null)
@@ -397,8 +390,8 @@ namespace ThelastEngineering.Player
 			  label.text = item.GetComponent<Item>().name;
 
 			  if(CrossPlatformInputManager.GetButtonDown ("PickUp"))
-			  	{	weaponHandler.PickUp(item.GetComponent<Item>());
-				   	vision.RemoveItem(item.gameObject);
+			  	{	player._handler.PickUp(item.GetComponent<Item>());
+				   	player._vision.RemoveItem(item.gameObject);
 				 }
 		  }else
 		  {
@@ -410,29 +403,29 @@ namespace ThelastEngineering.Player
 
 
 
-			input.firstWeaponbtn.gameObject.SetActive(weaponHandler.firstWeapon != null);
-			input.secondWeaponbtn.gameObject.SetActive(weaponHandler.secondWeapon != null);
-			input.releaseWeaponbtn.gameObject.SetActive(weaponHandler.currentWeapon != null);
+			input.firstWeaponbtn.gameObject.SetActive(player._handler.firstWeapon != null);
+			input.secondWeaponbtn.gameObject.SetActive(player._handler.secondWeapon != null);
+			input.releaseWeaponbtn.gameObject.SetActive(player._handler.currentWeapon != null);
 
 
 				if(CrossPlatformInputManager.GetButtonUp ("FirstWeapon"))
-			  	{	weaponHandler.SwitchWeapons(1);
+			  	{	player._handler.SwitchWeapons(1);
 				 }
 				
 				if(CrossPlatformInputManager.GetButtonUp ("SecondWeapon"))
-			  	{	weaponHandler.SwitchWeapons(2);
+			  	{	player._handler.SwitchWeapons(2);
 				 }
 
 				if(CrossPlatformInputManager.GetButtonUp ("Release"))
-			  	{	weaponHandler.Drop();
+			  	{	player._handler.Drop();
 				 }
 
 				if(CrossPlatformInputManager.GetButton("Fire"))
-			  	{	weaponHandler.Fire(true);
+			  	{	player._handler.Fire(true);
 				 }
 				 else
 				 {
-					 weaponHandler.Fire(false);
+					 player._handler.Fire(false);
 				 }
 				
 		
@@ -444,18 +437,11 @@ namespace ThelastEngineering.Player
 	  #endregion Buttons
 
 
-	  
-
-
-
-
-
-
-
-
-
-	
+	 	
 	#endregion Methodes
+
+
+
 
 	}
 }
